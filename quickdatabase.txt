@@ -1,0 +1,48 @@
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS dept_emp;
+DROP TABLE IF EXISTS dept_manager;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS salaries;
+DROP TABLE IF EXISTS titles;
+
+departments
+-
+dept_no VARCHAR(10) PK
+dept_name VARCHAR(40)
+
+dept_emp
+-
+emp_no INTEGER FK >- employees.emp_no
+dept_no VARCHAR(10) FK >- departments.dept_no
+from_date DATE
+to_date DATE
+
+dept_manager
+-
+dept_no VARCHAR(10) FK >- departments.dept_no
+emp_no INTEGER FK >- employees.emp_no
+from_date DATE
+to_date DATE
+
+employees
+-
+emp_no INTEGER PK
+birth_date DATE
+first_name VARCHAR(40)
+last_name VARCHAR(40)
+gender VARCHAR(1)
+hire_date DATE
+
+salaries
+-
+emp_no INTEGER FK >- employees.emp_no
+salary INTEGER
+from_date DATE
+to_date DATE
+
+titles
+-
+emp_no INTEGER FK >- employees.emp_no
+title VARCHAR(40)
+from_date DATE
+to_date DATE
